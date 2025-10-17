@@ -1,0 +1,319 @@
+agents:
+  # --- Summarization & Core Understanding ---
+  - name: "Executive Summarizer"
+    description: "Creates a high-level summary for busy executives, focusing on key findings and strategic implications."
+    api: "Gemini" # This will be overridden by the UI selection
+    model: "gemini-2.5-flash" # This will be overridden by the UI selection
+    prompt: |
+      Analyze the following document and provide a concise executive summary. Focus on the main objectives, key outcomes, strategic implications, and any critical calls to action. The summary should be suitable for a C-level executive who needs a quick, high-level overview.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Key Bullet Points Extractor"
+    description: "Extracts the most critical points and presents them as a concise bulleted list."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Read the following text and extract the most important key takeaways. Present them as a clear and concise bulleted list. Each bullet point should represent a single, significant idea or finding.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "ELI5 (Explain Like I'm 5) Summarizer"
+    description: "Simplifies complex topics into very simple, easy-to-understand language."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Explain the core concepts of the following text as if you were explaining them to a five-year-old. Use simple words, short sentences, and analogies. Avoid jargon.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Technical Abstractor"
+    description: "Generates a technical abstract, suitable for research papers or technical reports."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Act as a technical analyst. Create a formal abstract for the provided document. The abstract should include the background, methods, key results, and conclusion, following the standard format for a scientific or technical paper.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Information & Data Extraction ---
+  - name: "Action Items Detector"
+    description: "Identifies and lists all actionable tasks, responsibilities, and deadlines mentioned in the text."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Scan the following text for any action items, tasks, or suggestions. List them clearly, and if available, include who is responsible and any mentioned deadlines. If no action items are found, state that.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Key Entities Extractor (NER)"
+    description: "Performs Named Entity Recognition to find and categorize people, organizations, locations, and dates."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Extract all named entities from the text below. Categorize them into the following groups: People, Organizations, Locations, Dates, and Products. Present the result in a structured list.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Data & Statistics Finder"
+    description: "Pulls out all numerical data, statistics, percentages, and figures."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Identify and list all quantitative data points from the provided text. This includes percentages, monetary values, statistics, measurements, and any other numerical figures.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Contact Information Extractor"
+    description: "Scans for and extracts any contact details like emails, phone numbers, and addresses."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Please scan the document and extract any contact information you find. This includes names, email addresses, phone numbers, and physical addresses. List each piece of information clearly.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Key Terminology & Glossary Builder"
+    description: "Identifies important terms and acronyms and generates a glossary with definitions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the text to identify key terminology, acronyms, and jargon. Create a glossary by listing each term followed by a clear, concise definition based on its context in the document.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Sentiment & Tone Analysis ---
+  - name: "Sentiment Analyzer"
+    description: "Analyzes the overall sentiment of the text (Positive, Negative, Neutral) and provides a justification."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Evaluate the overall sentiment of the following text. Classify it as Positive, Negative, or Neutral. Provide a brief explanation for your classification, citing specific words or phrases from the text.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Emotional Tone Detector"
+    description: "Identifies the underlying emotional tones (e.g., Joy, Anger, Optimism, Caution)."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the emotional tone of the provided text. Identify the top 3 dominant emotions (e.g., Optimistic, Anxious, Formal, Joyful, Critical) and explain why you chose them, referencing parts of the text.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Argument & Stance Analyzer"
+    description: "Identifies the main arguments in the text and determines the author's stance on the topic."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Deconstruct the arguments presented in the following text. Identify the main claim, the evidence used to support it, and the author's overall stance or point of view.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Content Transformation & Creation ---
+  - name: "Press Release Generator"
+    description: "Transforms the input text into a professional press release format."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Using the information in the document provided, write a professional press release. Include a compelling headline, a dateline, an introduction (the 5 Ws), a body with more details and quotes, boilerplate text, and media contact information.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Social Media Post Creator (LinkedIn)"
+    description: "Generates a professional LinkedIn post based on the document's content."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Act as a social media manager. Create a compelling LinkedIn post based on the key insights from the following text. The post should be professional, engaging, and include relevant hashtags.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "FAQ Generator"
+    description: "Creates a list of Frequently Asked Questions (FAQs) and their answers based on the text."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Based on the content of the provided document, generate a list of at least 5 frequently asked questions (FAQs) that the text answers. Provide a clear and concise answer for each question, drawing directly from the text.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Content Translator (to Spanish)"
+    description: "Translates the text into Spanish while preserving the original tone and context."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Translate the following English text to Spanish. Ensure the translation is accurate, natural-sounding, and maintains the original meaning and tone.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Audience-Specific & Strategic Analysis ---
+  - name: "Legal Risk Assessor"
+    description: "Identifies clauses or statements that may represent legal risks, obligations, or liabilities. (For informational purposes only)."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Disclaimer: I am an AI and not a lawyer. This analysis is for informational purposes only.
+      Please review the following text and identify any language that could pertain to legal matters, such as contractual obligations, liabilities, warranties, or intellectual property rights. List and briefly explain the potential implications of each identified clause.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Marketing Angle Identifier"
+    description: "Analyzes the text to find potential marketing messages, target audiences, and unique selling propositions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Act as a marketing strategist. Read the following document and identify potential marketing angles. What are the key selling points? Who is the target audience? What customer problems does this solve? Formulate 3-5 marketing messages based on your analysis.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Investor Pitch Analyst"
+    description: "Evaluates the text from an investor's perspective, focusing on value proposition, market, and risk."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the provided document from the perspective of a venture capitalist. Summarize the business idea, its value proposition, target market, potential risks, and overall investment-worthiness based solely on the text.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "SWOT Analysis Generator"
+    description: "Performs a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) based on the text."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Based on the information in the following text, conduct a SWOT analysis. List the key Strengths, Weaknesses, Opportunities, and Threats discussed or implied in the document.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Competitive Landscape Analyzer"
+    description: "Identifies any mentioned competitors and analyzes the competitive positioning described in the text."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      From the text provided, identify all mentioned competitors. Analyze and summarize the competitive landscape as described. What are the key differentiators and strategic advantages mentioned in the document?
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Review, Critique & Improvement ---
+  - name: "Bias and Objectivity Detector"
+    description: "Analyzes the text for potential bias, subjective language, and emotional manipulation."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Critically evaluate the following text for objectivity. Identify any instances of biased language, unsubstantiated claims, or emotionally charged statements. Provide a summary of the text's overall level of bias.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Fact-Checking Claim Identifier"
+    description: "Identifies specific claims or statements in the text that should be fact-checked for accuracy."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Read the document and identify any specific, verifiable claims that are presented as facts (e.g., statistics, historical statements, scientific claims). List these claims so they can be fact-checked. Do not perform the fact-checking, only identify the claims.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Readability Scorer"
+    description: "Assesses the text's readability and provides a score (e.g., Flesch-Kincaid) and suggestions for improvement."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the readability of the provided text. Estimate its reading grade level (e.g., 'high school level' or 'post-graduate level'). Identify complex sentences or jargon and provide specific suggestions on how to simplify the text to make it more accessible.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Counter-Argument Generator"
+    description: "Formulates potential counter-arguments or identifies logical fallacies in the text's reasoning."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Act as a critical thinker. Read the following text and generate potential counter-arguments to its main points. Identify any logical fallacies or weaknesses in the author's reasoning.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Technical & Specialized Analysis ---
+  - name: "Code Snippet Extractor"
+    description: "Finds and extracts any code snippets from the text, identifying the language if possible."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Scan the document for any source code snippets. Extract each snippet, place it in a formatted code block, and attempt to identify the programming language (e.g., Python, JavaScript, SQL).
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Scientific Paper Deconstructor"
+    description: "Breaks down a scientific paper into its core components: Hypothesis, Methods, Results, and Conclusion."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the following scientific text and deconstruct it into its primary components. Provide a summary for each of the following sections based on the text: 1. Hypothesis/Objective, 2. Methodology, 3. Key Results/Findings, 4. Conclusion and Implications.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "HR Policy Reviewer"
+    description: "Scans for keywords related to Human Resources policies, compliance, and employee conduct."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Review the following document from an HR perspective. Identify and summarize any sections related to company policies, employee conduct, compliance, diversity and inclusion, or other HR-relevant topics.
+      ---
+      Document Text:
+      {input_text}
+
+  # --- Data Formatting ---
+  - name: "JSON Converter"
+    description: "Converts the key information from unstructured text into a structured JSON object."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Read the following document and extract the most critical information. Organize this information into a structured JSON format. The JSON object should have clear keys and values representing the core data points of the text.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "CSV Table Generator"
+    description: "Identifies tabular data or lists within the text and formats it as a CSV (Comma-Separated Values) table."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Analyze the following text for any data that can be structured into a table. Convert this data into a CSV format. The first line should be the headers, and subsequent lines should be the data rows.
+      ---
+      Document Text:
+      {input_text}
+
+  - name: "Project Plan Creator"
+    description: "Extracts project goals, tasks, and timelines and formats them into a structured project plan."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    prompt: |
+      Based on the document provided, create a structured project plan. Identify the main project goal, list the key phases or tasks, and extract any mentioned deadlines or milestones. Present this as a clear, organized plan.
+      ---
+      Document Text:
+      {input_text}

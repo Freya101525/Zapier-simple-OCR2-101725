@@ -1,0 +1,86 @@
+agents:
+  - name: Summarizer
+    prompt: "Please provide a concise, professional summary of the following text. Focus on the main arguments and conclusions.\n\n{input_text}"
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    parameters:
+      temperature: 0.6
+      top_p: 1.0
+  - name: Key Point Extractor
+    prompt: "Extract the most critical key points and takeaways from this text. Present them as a clear, scannable bulleted list.\n\n{input_text}"
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    parameters:
+      temperature: 0.3
+  - name: Sentiment Analyst
+    prompt: "Analyze the sentiment of the following text. Classify it as positive, negative, or neutral, and provide a one-sentence justification for your analysis, including key phrases that support your conclusion.\n\n{input_text}"
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    parameters:
+      temperature: 0.5
+  - name: Action Item Identifier
+    prompt: "Review the text below and identify any potential action items, tasks, or next steps mentioned. List them clearly. If no action items are found, state 'No action items identified'.\n\n{input_text}"
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    parameters:
+      temperature: 0.7
+  - name: Question Generator
+    prompt: "Based on the provided text, generate three insightful questions that challenge the core assumptions or explore the implications of the content. The questions should provoke deeper thinking.\n\n{input_text}"
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+    parameters:
+      temperature: 0.8
+  - name: Data Summarizer
+    prompt: "Given the following JSON data, provide a concise summary of its key characteristics, including data types, value ranges for numerical fields, and unique counts for categorical fields. Identify any potential data quality issues. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Trend Identifier
+    prompt: "Analyze the provided JSON data to identify any significant trends, patterns, or correlations between fields. Focus on temporal trends if date/time fields are present. Output your findings clearly. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"    
+  - name: Anomaly Detector
+    prompt: "Examine the JSON data for any unusual entries, outliers, or anomalies. Describe what makes them anomalous and suggest potential reasons or further investigation steps. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Summarizer
+    prompt: "Summarize the following text into three key bullet points. Focus on the main conclusions or findings. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Q&A Generator
+    prompt: "Based on the provided text, generate a list of five important questions that a reader might have, and then provide a clear, concise answer for each question directly from the text. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Tone Analyzer
+    prompt: "Analyze the tone and sentiment of the following text. Describe it in one paragraph. Is it formal, informal, optimistic, pessimistic, neutral? Provide evidence from the text to support your analysis. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Agent_builder
+    prompt: "Given the agent descriptions, transform to standard agent description format (user provided), if user not provide agent description format, use the default format(-name:, prompt) . Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Doc_Summarizer
+    prompt: "Given the document, provide a comprehensive summary in markdown with keywords in coral color and include a table in markdown with keywords in coral color that summarizing key items of the document. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Guidance Generator
+    prompt: "Based on the provided text and guidance format (user provided), create a gudiance document in markdown with 30 QA. If user not provide guidance format, create by yourself. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Q&A Generator
+    prompt: "Based on the provided text, generate a list of five important questions that a reader might have, and then provide a clear, concise answer for each question directly from the text. Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: APP_Usacase_builder
+    prompt: "Based on the provided specifications, please create code (python) for a agentic system based on the specification (user provided). Please add additional features that user can upload multiple pdf files and specify what pages to trim. Then system will trim the files. If the pdf file is image file, system will do OCR process to the files. Then system will transform each file to markdown with key words in coral color. User can modify the previous results. Then user decide how many agents to use from agents.yaml. User can modify prompt and related parameters before execute agent one by one. User can modify output from the previous agent and as input to the next agent. This system is deployed on hugging face space using streamlit, agents.yaml, Gemini API (gemini-2.0-flash, gemini-2.5-flash, gemini-2.5-flash-lite, using google-generativeai), OPENAI API (gpt-5-nano, get-4o-mini, using openai), Grok API (grok-3-mini, using xai_sdk). Please also create a wow UI that user can choose themes (Neat dark, Simple white, Alp. forest, Blue sky, Deep oceam, Magic purple, Beethoven, Mozart, J.S.Bach, Chopin, Ferrari Sportscar, NBA, MLB, NFL styles).Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: APP_Improvement_builder
+    prompt: "Based on the provided code, please improve the code (python) by fixing potential bugs, keeping all the origional features and adding additional features that user can upload multiple pdf files and specify what pages to trim. Then system will trim the files. If the pdf file is image file, system will do OCR process to the files. Then system will transform each file to markdown with key words in coral color. User can modify the previous results. Then user decide how many agents to use from agents.yaml. User can modify prompt and related parameters before execute agent one by one. User can modify output from the previous agent and as input to the next agent. This system is deployed on hugging face space using streamlit, agents.yaml, Gemini API (gemini-2.0-flash, gemini-2.5-flash, gemini-2.5-flash-lite, using google-generativeai), OPENAI API (gpt-5-nano, get-4o-mini, using openai), Grok API (grok-3-mini, using xai_sdk). Please also create a wow UI that user can choose themes (Neat dark, Simple white, Alp. forest, Blue sky, Deep oceam, Magic purple, Beethoven, Mozart, J.S.Bach, Chopin, Ferrari Sportscar, NBA, MLB, NFL styles).Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: SPEC_builder
+    prompt: "Based on the provided information, please create a comprehensive technical specifications including SDS, Architecture, Advanced prompt, environment settings, deployment instructions and more. Please also improve the design by adding additional features that user can upload multiple pdf files and specify what pages to trim. Then system will trim the files. If the pdf file is image file, system will do OCR process to the files. Then system will transform each file to markdown with key words in coral color. User can modify the previous results. Then user decide how many agents to use from agents.yaml. User can modify prompt and related parameters before execute agent one by one. User can modify output from the previous agent and as input to the next agent. This system is deployed on hugging face space using streamlit, agents.yaml, Gemini API (gemini-2.0-flash, gemini-2.5-flash, gemini-2.5-flash-lite, using google-generativeai), OPENAI API (gpt-5-nano, get-4o-mini, using openai), Grok API (grok-3-mini, using xai_sdk). Please also create a wow UI that user can choose themes (Neat dark, Simple white, Alp. forest, Blue sky, Deep oceam, Magic purple, Beethoven, Mozart, J.S.Bach, Chopin, Ferrari Sportscar, NBA, MLB, NFL styles).Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."
+    api: "Gemini"
+    model: "gemini-2.5-flash"
+  - name: Questions_builder
+    prompt: "Based on the provided information, please ask 30 questions regarding to developing an agentic ai system based on the provided infromation. This system is deployed on hugging face space using streamlit, agents.yaml, Gemini API (gemini-2.0-flash, gemini-2.5-flash, gemini-2.5-flash-lite, using google-generativeai), OPENAI API (gpt-5-nano, get-4o-mini, using openai), Grok API (grok-3-mini, using xai_sdk). Please also create a wow UI that user can choose themes (Neat dark, Simple white, Alp. forest, Blue sky, Deep oceam, Magic purple, Beethoven, Mozart, J.S.Bach, Chopin, Ferrari Sportscar, NBA, MLB, NFL styles).Please modify the prompt and tell me reason for the modification. Ending with 20 follow up questions."

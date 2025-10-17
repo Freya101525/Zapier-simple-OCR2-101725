@@ -1,0 +1,8 @@
+streamlit
+google-generativeai
+openai
+xai_sdk
+PyPDF2
+pytesseract
+pdf2image
+PyYAML
