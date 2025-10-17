@@ -89,7 +89,7 @@ def apply_theme(theme_name):
 # --- Helper Functions ---
 def get_api_key(provider):
     """Checks env, secrets, and session state for API key. Prompts user if not found."""
-    key_env_map = {"Gemini": "GOOGLE_API_KEY", "OpenAI": "OPENAI_API_KEY", "Grok": "XAI_API_KEY"}
+    key_env_map = {"Gemini": "GEMINI_API_KEY", "OpenAI": "OPENAI_API_KEY", "Grok": "XAI_API_KEY"}
     key = os.getenv(key_env_map[provider]) or st.secrets.get(key_env_map[provider])
     if key:
         st.session_state.api_keys[provider] = key
