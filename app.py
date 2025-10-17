@@ -35,9 +35,9 @@ THEMES = {
 
 # --- Model Definitions ---
 MODEL_OPTIONS = {
-    "Gemini": ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-1.0-pro"],
-    "OpenAI": ["gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"],
-    "Grok": ["grok-1.5-flash", "grok-1.5"]
+    "Gemini": ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"],
+    "OpenAI": ["gpt-4o-mini", "gpt-4.1-mini", "gpt-5-nano"],
+    "Grok": ["grok-4-fast-reasoning", "grok-3-mini"]
 }
 
 # --- Initialize Session State ---
